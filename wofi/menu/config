@@ -1,4 +1,4 @@
-style=/home/digitz/.config/wofi/menu/style.css
+style=$HOME/.config/wofi/menu/style.css
 xoffset=15
 yoffset=16
 show=drun
