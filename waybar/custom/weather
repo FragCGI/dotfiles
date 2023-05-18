@@ -1,6 +1,6 @@
 #!/bin/bash
 
-location="Debert"  # Set the location here
+location="City"  # Set the location here
 
 #Set terminal size
 xdotool windowsize $(xdotool getactivewindow) 10 30
