@@ -1,0 +1,18 @@
+#!/bin/bash
+
+location="Debert"  # Set the location here
+
+#Set terminal size
+xdotool windowsize $(xdotool getactivewindow) 10 30
+
+while true; do
+  clear
+  curl -s "https://wttr.in/$location\?Q0"
+  read -n 1 -s user_input
+  if [[ $user_input == "q" ]]; then
+    break
+  fi
+done
+
+# Reset terminal window size to default
+xdotool windowsize $(xdotool getactivewindow) 0 0

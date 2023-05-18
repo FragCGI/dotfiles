@@ -1,0 +1,138 @@
+
+{
+  "layer": "top",
+  "position": "top",
+  "height": 24,
+  "width": 1910,
+  "margin": "2",
+  "spacing": 4,
+  "exclusive": true,
+  "gtk-layer-shell": true,
+  "passthrough": false,
+  "fixed-center": true,
+  "modules-left": ["custom/menu", "wlr/workspaces", "hyprland/window"],
+  "modules-center": ["mpd", "custom/newsboat"],
+  "modules-right": ["custom/weather", "clock", "clock#date", "pulseaudio", "tray", "custom/power"],
+
+  "custom/newsboat": {
+    "on-click": "kitty -e newsboat",
+    "on-click-right": "newsboat -x reload",
+    "interval": 2,
+    "format": "󰦔",
+    "tooltip": true,
+    "tooltip-format": "Newsboat",
+  },
+
+  "custom/menu": {
+    "tooltip": false,
+    "on-click": "wofi --conf ~/.config/wofi/menu/config",
+    "format": "",
+  },
+
+  "hyprland/window": {
+    "format": "  {}",
+    "max-length": "20",
+    "separate-outputs": true,
+  },
+  
+  "wlr/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {"1": "", "2": "", "3": "", "4": "", "5": "", "6": "", "7": "", "8": "", "9": "", "0": ""},
+    "active-only": false,
+    "all-outputs": true,
+    "enable-bar-scroll": false,
+  },
+  
+  "mpd": {
+    "on-click": "kitty --class player --name player -T Player -e nncmpp",
+    "on-click-right": "mpc toggle",
+    "on-scroll-up": "mpc prev",
+    "on-scroll-down": "mpc next",
+    "format": "{artist} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+   	"format-disconnected": "Disconnected",
+   	"format-stopped": "Stopped",
+   	"interval": 2,
+   	"consume-icons": {
+	    "on": " " // Icon shows only when "consume" is on
+    },
+    "random-icons": {
+	    "off": " ",
+      "on": " "
+    },
+    "repeat-icons": {
+		  "on": " "
+    },
+    "single-icons": {
+		  "on": "1 "
+    },
+    "state-icons": {
+		  "paused": "",
+    	"playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
+  },
+  
+  "tray": {
+    "spacing": 10
+  },
+  
+  "clock": {
+    "tooltip": false,
+    "format": "  {:%I:%M %p}"
+  },
+  
+  "clock#date": {
+    "format": "   {:%a %d %b}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+    "on-click": "kitty --class calendar --name calendar -T Calendar -e calcurse"
+  },
+  
+  "cpu": {
+    "format": "  {usage}%",
+    "tooltip": true,
+    "interval": 1
+  },
+  
+  "memory": {
+    "format": "  {used:0.2f}G"
+  },
+  
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "  muted",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [" ", " ", " "]
+    },
+    "on-click": "kitty --class pmix --name pmix -T Mixer -e pulsemixer"
+  },
+  
+  "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "~/.config/waybar/custom/waybar-wttr.py",
+    "return-type": "json",
+    "on-click": "kitty --class weather --name weather -T Weather -e ~/.config/waybar/custom/weather"
+  },
+
+  "network": {
+    "interface": "enp7s0",
+    "interval": 5,
+    "format": "{bandwidthUpBits},  {bandwidthDownBits}", 
+    "format-disconnected": "",
+  },
+
+  "custom/power": {
+    "tooltip": false,
+    "on-click": "$HOME/.config/waybar/custom/powermenu",
+    "format": "⏼",
+  }
+}

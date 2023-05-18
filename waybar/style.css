@@ -1,0 +1,155 @@
+@import "/home/digitz/.cache/wal/hyprcolors.css";
+* {
+  min-height: 0;
+  font-family: Monoid Nerd Font;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 26px;
+  border: none;
+}
+
+window#waybar {
+  background-color: transparent;
+  opacity: 1.0;
+}
+
+window#waybar.hidden {
+  opacity: 0.5;
+  border-radius: 8px;
+}
+
+#workspaces {
+  font-size: 14px;
+  background-color: @background;
+  margin: 2px;
+}
+
+#workspaces button {
+  border-radius: 20px;
+  background-color: transparent;
+  color: @color1;
+  margin: 4px;
+}
+
+#workspaces button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  color: @background;
+  background: @color1;
+}
+
+#workspaces button.active {
+  color: @background;
+  background-color: @color1;
+}
+
+#workspaces button.urgent {
+  background-color: @color5;
+  color: @background;
+}
+
+#clock,
+#pulseaudio,
+#custom-power,
+#cpu,
+#tray,
+#window,
+#memory,
+#mpd,
+#network,
+#custom-weather,
+#custom-menu,
+#custom-newsboat {
+  border-radius: 26px;
+  padding: 0px 14px;
+  margin: 2px;
+}
+
+.modules-left {
+  background-color: @background;
+  margin: 0px 8px;
+}
+
+.modules-center {
+  background-color: @background;
+  margin: 0px 8px;
+}
+
+.modules-right {
+  background-color: @background;
+  margin: 0px 8px;
+}
+
+#custom-newsboat {
+  font-size: 14px;
+  background-color: transparent;
+  color: @color4;
+}
+
+#custom-menu {
+  font-size: 14px;
+  background-color: transparent;
+  color: @color1;
+}
+
+#window {
+  background-color: @color2;
+  color: @background;
+  margin: 4px;
+}
+
+#mpd {
+  background-color: transparent;
+  color: @color4;
+}
+
+#custom-weather{
+  background-color: transparent;
+  color: @color6;
+}
+
+#clock.date {
+  background-color: transparent;
+  color: @color6;
+}
+
+#clock {
+  background-color: transparent;
+  color: @color6;
+}
+
+#pulseaudio {
+  background-color: transparent;
+  color: @color6;
+}
+
+#pulseaudio.muted {
+  background-color: transparent;
+  color: @color8;
+}
+
+#tray {
+  background-color: @color2;
+  margin: 4px;
+}
+
+#custom-power {
+  font-size: 14px;
+  background-color: transparent;
+  color: @color6;
+}
+
+tooltip {
+  background-color: transparent;
+  border: none;
+}
+
+tooltip label {
+  font-size: 12px;
+  background-color: @background;
+  border-radius: 8px;
+  border: solid 2px @color5;
+  color: @color2;
+  margin: 6px;
+  padding: 6px;
+}
