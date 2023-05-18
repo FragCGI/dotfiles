@@ -1,4 +1,4 @@
-@import "/home/digitz/.cache/wal/hyprcolors.css";
+@import "$HOME/.cache/wal/hyprcolors.css";
 
 *{
   font-family: Monoid Nerd Font ;
