@@ -1,0 +1,65 @@
+@import "/home/digitz/.cache/wal/hyprcolors.css";
+
+*{
+  font-family: Monoid Nerd Font ;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+window {
+  background-color: @background;
+	color: @color3;
+	border-radius: 8px;
+	opacity: 1.0;  
+}
+
+#outer-box {
+	border: 2px solid @color4;
+	border-radius: 8px;
+}
+
+#input {
+  background-color: @background;
+  color: @foreground;
+	border: 2px solid @color4;
+	border-radius: 8px;
+	margin: 1em;
+  outline-width: 0px !important;
+}
+
+#input:focus {
+  outline: none !important;
+  outline-width: 0px;
+}
+
+#img {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#text {
+  color: @color3;
+	margin-left:1em;	
+}
+
+#text:selected{
+  color: @background;
+}
+
+#entry {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+#entry:selected {
+  background-color: @color3;
+  color: @background;
+  border-radius: 8px;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+#entry:focus {
+  outline: none;
+  outline-width: 0px;
+}

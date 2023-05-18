@@ -1,0 +1,11 @@
+style=/home/digitz/.config/wofi/menu/style.css
+xoffset=15
+yoffset=16
+show=drun
+allow_images=false
+allow_markup=true
+insensitive=true
+hide_scroll=true
+lines=30
+no_actions=true
+width=400

@@ -1,0 +1,12 @@
+#!/usr/bin/zsh
+
+chosen=$(cut -d ';' -f1 $SCRIPTDIR/emoji | wofi -d | awk '{print $1}' )
+
+[ -z "$chosen" ] && exit
+
+if [ -n "$1" ]; then
+    ydotool type "$chosen"
+else
+  printf "$chosen" | wl-copy
+    notify-send "'$chosen' copied to clipboard." &
+fi
