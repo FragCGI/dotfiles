@@ -7,9 +7,6 @@ read -p "Enter backend (colorthief, colorz, haishoku or schemer): " backend
 compile_theme(){
   wal -i $image --backend $backend
   wait
-  #killall hyprpaper
-  #echo -en "$wallpapers_string" > ~/.config/hypr/hyprpaper.conf
-  #hyprpaper &
   swww img "$image" -t grow --transition-duration 4 --transition-fps 30 --transition-bezier 0.68,-0.6,0.32,1.6
   pywalfox update
   pywal-discord
