@@ -1,9 +1,9 @@
-@import "/home/digitz/.cache/wal/hyprcolors.css";
+@import "$HOME/.cache/wal/hyprcolors.css";
 * {
   min-height: 0;
-  font-family: Monoid Nerd Font;
-  font-size: 14px;
-  font-weight: 500;
+  font-family: GohuFont Nerd Font;
+  font-size: 18px;
+  font-weight: 600;
   border-radius: 26px;
   border: none;
 }
@@ -18,34 +18,58 @@ window#waybar.hidden {
   border-radius: 8px;
 }
 
+.modules-left {
+  background-color: @background;
+  margin: 0px 8px;
+}
+
+.modules-center {
+  background-color: @background;
+  margin: 0px 8px;
+}
+
+.modules-right {
+  background-color: @background;
+  margin: 0px 8px;
+}
+
+#custom-menu {
+  font-size: 16px;
+  background-color: @background;
+  color: @color1;
+  margin: 4px;
+}
+
 #workspaces {
   font-size: 14px;
-  background-color: @background;
-  margin: 2px;
+  background-color: @color1;
+  margin: 4px;
+  padding-left: 4px;
+  padding-right: 4px;
 }
 
 #workspaces button {
   border-radius: 20px;
   background-color: transparent;
-  color: @color1;
-  margin: 4px;
+  color: @background;
+  margin: 2px;
 }
 
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  color: @background;
-  background: @color1;
+  color: @color1;
+  background: @background;
 }
 
 #workspaces button.active {
-  color: @background;
-  background-color: @color1;
+  color: @color1;
+  background-color: @background;
 }
 
 #workspaces button.urgent {
-  background-color: @color5;
-  color: @background;
+  background-color: @background;
+  color: @color5;
 }
 
 #clock,
@@ -65,33 +89,6 @@ window#waybar.hidden {
   margin: 2px;
 }
 
-.modules-left {
-  background-color: @background;
-  margin: 0px 8px;
-}
-
-.modules-center {
-  background-color: @background;
-  margin: 0px 8px;
-}
-
-.modules-right {
-  background-color: @background;
-  margin: 0px 8px;
-}
-
-#custom-newsboat {
-  font-size: 14px;
-  background-color: transparent;
-  color: @color4;
-}
-
-#custom-menu {
-  font-size: 14px;
-  background-color: transparent;
-  color: @color1;
-}
-
 #window {
   background-color: @color2;
   color: @background;
@@ -99,44 +96,60 @@ window#waybar.hidden {
 }
 
 #mpd {
-  background-color: transparent;
-  color: @color4;
+  background-color: @color3;
+  color: @background;
+  margin: 4px;
 }
-
+#custom-newsboat {
+  font-size: 16px;
+  background-color: transparent;
+  color: @color3;
+}
 #custom-weather{
-  background-color: transparent;
-  color: @color6;
-}
-
-#clock.date {
-  background-color: transparent;
-  color: @color6;
+  background-color: @color4;
+  color: @background;
+  margin: 4px;
 }
 
 #clock {
-  background-color: transparent;
-  color: @color6;
+  background-color: @color4;
+  color: @background;
+  margin: 4px;
+  border-radius: 26px 0px 0px 26px;
+  margin: 4px;
+  margin-right: -8px;
+}
+
+#clock.date {
+  background-color: @color4;
+  color: @background;
+  margin: 4px;
+  border-radius: 0px 26px 26px 0px;
+  margin: 4px;
+  margin-left: -8px;
 }
 
 #pulseaudio {
-  background-color: transparent;
-  color: @color6;
+  background-color: @color4;
+  color: @background;
+  margin: 4px;
 }
 
 #pulseaudio.muted {
-  background-color: transparent;
+  background-color: @color4;
   color: @color8;
+  margin: 4px;
 }
 
 #tray {
-  background-color: @color2;
+  background-color: @color5;
   margin: 4px;
 }
 
 #custom-power {
-  font-size: 14px;
+  font-size: 16px;
   background-color: transparent;
-  color: @color6;
+  color: @color5;
 }
 
 tooltip {
@@ -148,8 +161,8 @@ tooltip label {
   font-size: 12px;
   background-color: @background;
   border-radius: 8px;
-  border: solid 2px @color5;
-  color: @color2;
+  border: solid 2px @color8;
+  color: @color7;
   margin: 6px;
   padding: 6px;
 }
