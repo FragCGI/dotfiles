@@ -1,75 +1,85 @@
-@import "$HOME/.cache/wal/hyprcolors.css";
+@import "../colors/fraggle.css";
 * {
   min-height: 0;
-  font-family: GohuFont Nerd Font;
-  font-size: 18px;
-  font-weight: 600;
-  border-radius: 26px;
+  font-family: ComicShannsMono Nerd Font;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 8px;
   border: none;
 }
 
 window#waybar {
-  background-color: transparent;
+  background: transparent;
   opacity: 1.0;
 }
 
 window#waybar.hidden {
   opacity: 0.5;
-  border-radius: 8px;
 }
 
 .modules-left {
-  background-color: @background;
-  margin: 0px 8px;
+  background: @background;
+  border-radius: 8px;
+  margin: 0px 0px;
+  padding: 2px;
 }
 
 .modules-center {
-  background-color: @background;
+  background: @background;
+  border-radius: 8px;
   margin: 0px 8px;
+  padding: 2px;
 }
 
 .modules-right {
-  background-color: @background;
-  margin: 0px 8px;
+  background: @background;
+  border-radius: 8px;
+  margin: 0px 0px;
+  padding: 0px;
 }
 
 #custom-menu {
-  font-size: 16px;
-  background-color: @background;
-  color: @color1;
-  margin: 4px;
+  background: transparent;
+  color: @color7;
+  text-shadow: 0px 0px 3px @background;
 }
 
 #workspaces {
-  font-size: 14px;
-  background-color: @color1;
+  background: @color1;
+  box-shadow: 0px 0px 5px @color0 inset;
   margin: 4px;
   padding-left: 4px;
   padding-right: 4px;
 }
 
 #workspaces button {
-  border-radius: 20px;
-  background-color: transparent;
-  color: @background;
+  border-radius: 2px;
+  background: transparent;
+  color: @color0;
   margin: 2px;
 }
 
 #workspaces button:hover {
-  box-shadow: inherit;
-  text-shadow: inherit;
-  color: @color1;
-  background: @background;
+  box-shadow: none;
+  text-shadow: 0px 0px 5px @color0;
+  background: transparent;
+  border-radius: 8px;
+  color: @color9;
 }
 
 #workspaces button.active {
-  color: @color1;
-  background-color: @background;
+  box-shadow: none;
+   text-shadow: 0px 0px 5px @color0;
+  background: transparent;
+  border-radius: 8px;
+  color: @color9;
 }
 
 #workspaces button.urgent {
-  background-color: @background;
-  color: @color5;
+  box-shadow: none;
+  background: transparent;
+  border-radius: 8px;
+  color: @color9;
 }
 
 #clock,
@@ -84,85 +94,108 @@ window#waybar.hidden {
 #custom-weather,
 #custom-menu,
 #custom-newsboat {
-  border-radius: 26px;
+  border-radius: 8px;
   padding: 0px 14px;
   margin: 2px;
 }
 
 #window {
-  background-color: @color2;
-  color: @background;
+  background: @color4;
+  color: @color0;
+  box-shadow: 0px 0px 5px @color0 inset;
   margin: 4px;
 }
 
 #mpd {
-  background-color: @color3;
-  color: @background;
+  background: @color2;
+  color: @color0;
+  box-shadow: 0px 0px 5px @color0 inset;
   margin: 4px;
-}
-#custom-newsboat {
-  font-size: 16px;
-  background-color: transparent;
-  color: @color3;
-}
-#custom-weather{
-  background-color: @color4;
-  color: @background;
-  margin: 4px;
-}
-
-#clock {
-  background-color: @color4;
-  color: @background;
-  margin: 4px;
-  border-radius: 26px 0px 0px 26px;
-  margin: 4px;
-  margin-right: -8px;
-}
-
-#clock.date {
-  background-color: @color4;
-  color: @background;
-  margin: 4px;
-  border-radius: 0px 26px 26px 0px;
-  margin: 4px;
-  margin-left: -8px;
 }
 
 #pulseaudio {
-  background-color: @color4;
-  color: @background;
+  background: @color2;
+  color: @color0;
+  box-shadow: 0px 0px 5px @color0 inset;
   margin: 4px;
 }
 
 #pulseaudio.muted {
-  background-color: @color4;
+  background: @color2;
   color: @color8;
+  box-shadow: 0px 0px 5px @color0 inset;
+  margin: 4px;
+}
+
+#custom-newsboat {
+  background: transparent;
+  color: @color7;
+}
+
+#custom-weather{
+  background: @color3;
+  color: @color0;
+  box-shadow: 0px 0px 5px @color0 inset;
+  margin: 4px;
+}
+
+#clock {
+  background: @color4;
+  color: @color0;
+  box-shadow: 0px 0px 5px @color0 inset;
+  margin: 4px;
+}
+
+#clock.date {
+  background: @color4;
+  color: @color0;
+  box-shadow: 0px 0px 5px @color0 inset;
   margin: 4px;
 }
 
 #tray {
-  background-color: @color5;
-  margin: 4px;
+  background: @color5;
+  color: @color0;
+  box-shadow: 0px 0px 5px @color0 inset;
+  margin: 4px;}
+
+#tray menu {
+  font-size: 12px;
+  background: @color0;
+  box-shadow: 2px 3px 4px 4px #121212;
+  color: @color8;
+  margin: 6px;
+  padding: 6px;
+}
+
+#tray menu menuitem {
+  background: @color0;
+  color: @color7;
+}
+
+#tray menu menuitem:hover {
+  background: @color5;
+  box-shadow: 2px 3px 1px 1px #121212;
 }
 
 #custom-power {
-  font-size: 16px;
-  background-color: transparent;
+  background: transparent;
   color: @color5;
 }
 
 tooltip {
-  background-color: transparent;
+  background: transparent;
   border: none;
 }
 
 tooltip label {
-  font-size: 12px;
-  background-color: @background;
-  border-radius: 8px;
-  border: solid 2px @color8;
-  color: @color7;
+  font-size: 14px;
+  font-weight: 200;
+  text-shadow: none;
+  background-color: @color0;
+  box-shadow: 2px 3px 1px 1px #121212;
+  border-radius: 2px;
+  color: @color8;
   margin: 6px;
   padding: 6px;
 }
