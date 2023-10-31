@@ -12,21 +12,27 @@
 
 # Displays
 monitor = DP-1, 1920x1080@165, 0x0, 1
+monitor = DP-3, 1920x1080@60, 1920x0, 1
+monitor = ,preferred,auto,1
+#workspace = 1, monitor:DP-1
+#workspace = 2, monitor:DP-3
+
 
 # Color source file
 source = $HOME/.config/colors/hyprcolors.conf
 
 # Runners
-exec-once = swaybg -i $HOME/Documents/Pictures/Wallpapers/Created/skulitude.png
+exec-once = swaybg -i $HOME/Documents/Pictures/Wallpapers/Backgrounds/Venom2.png
 exec-once = pulseaudio -D
-exec-once = /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec-once = waybar
 exec-once = dunst
-exec-once = hyprctl setcursor Adwaita 24
-exec-once = gsettings set org.gnome.desktop.interface cursor-theme Nordzy-cursors
-exec-once = foot -T ScratchPad -e nb shell
-exec-once = foot -T PopTerm
-exec-once = foot -T CPUTerm -e btop
-exec-once = foot -T GPUTerm -e nvtop
+exec-once = hyprctl setcursor vintage 24
+exec-once = gsettings set org.gnome.desktop.interface cursor-theme vintage
+exec-once = kitty --class scratch --name scratch -T ScratchPad -e nb shell home
+exec-once = kitty --class popterm --name popterm -T PopTerm
+exec-once = kitty --class cputop --name cputop -T CPUTerm -e btop
+exec-once = kitty --class gputop --name gputop -T GPUTerm -e nvtop
+exec-once = kitty --class nettop --name nettop -T NETTerm -e nethogs
 
 # General
 input {
@@ -42,10 +48,11 @@ binds {
 general {
     
     gaps_in = 4
-    gaps_out = 6
-    border_size = 2
-    col.active_border = rgb($color7)
-    col.inactive_border = rgb($color8) 
+    gaps_out = 8
+    border_size = 0
+    col.active_border = rgb($color2)
+    col.inactive_border = rgb($color8)
+    
     cursor_inactive_timeout = 1
     layout = dwindle
     sensitivity = 1
@@ -56,28 +63,23 @@ misc {
   disable_hyprland_logo = true
   disable_splash_rendering = true
   enable_swallow = true
-  swallow_regex = ^(foot)$
+  swallow_regex - ^(kitty)$
 }
 
 decoration {
-    rounding = 0
+    rounding = 4
+    multisample_edges = true
     active_opacity = 1.0
     inactive_opacity = 1.0
-    blur {
-      enabled = true 
-      size = 2
-      passes = 1
-      new_optimizations = true
-      noise = 0
-      contrast = 1.0
-      brightness = 1.0
-      special = true
-    }
-    drop_shadow = false
+    blur = yes
+    blur_size = 5
+    blur_passes = 1
+    blur_new_optimizations = true
+    drop_shadow = true
     shadow_range = 12
-    shadow_render_power = 8
+    shadow_render_power = 6
     shadow_scale = 1
-    col.shadow = rgb(161c20)
+    col.shadow = rgb(101417)
     shadow_offset = 0 0
 }
 
@@ -112,7 +114,8 @@ gestures {
     workspace_swipe = off
 }
 
-#Window Rules
+windowrulev2 = float,class:^(*.exe)$
+windowrulev2 = float,class:^(*.x86_64)$
 windowrule = float, file_progress
 windowrule = float, confirm
 windowrule = float, dialog
@@ -127,17 +130,17 @@ windowrule = float, Lxappearance
 windowrule = float, pavucontrol-qt
 windowrule = float, pavucontrol
 windowrule = float, projectM-pulseaudio
-windowrule = float,title:Mixer
-windowrule = size 800 400,title:Mixer
-windowrule = center,title:Mixer
+windowrule = float,pmix
+windowrule = size 800 400,pmix
+windowrule = center,pmix
 windowrule = float,weather
 windowrule = size 320 180,weather
 windowrule = center ,weather
 windowrule = float,player
 windowrule = center,player
-windowrule = float,title:calendar
-windowrule = size 800 500,title:calendar
-windowrule = center,title:calendar
+windowrule = float,calendar
+windowrule = size 800 500,calendar
+windowrule = center,calendar
 
 #Widnows On Specific Workspaces Rules
 windowrule = workspace 1, firefox
@@ -153,30 +156,45 @@ windowrule = workspace 6, blender
 windowrule = workspace 7, upbge
 windowrule = workspace 7, Godot
 
+# windowrulev2 = opacity 0.8 0.8,class:^(kitty)$
 
-windowrulev2 = opacity 0.9 0.9, class:(foot)
-windowrulev2 = float, title:footfloat
-windowrulev2 = size 40% 29%, title:footfloat
-windowrulev2 = center, title:footfloat
+windowrulev2 = float, class:(kittyfloat)
+windowrulev2 = size 50% 41%, class:(kittyfloat)
+windowrulev2 = move 25% 25%, class:(kittyfloat)
+windowrulev2 = opacity 0.8 0.8, class:(kittyfloat)
 #ScratchPad Rules
 windowrule = workspace special:scratch, scratch
-windowrulev2 = float,                           title:ScratchPad
-windowrulev2 = workspace special:scratch,       title:ScratchPad
-windowrulev2 = size 70% 60%,                    title:ScratchPad
-windowrulev2 = move 15% 20%,                    title:ScratchPad
+# windowrule = opacity 1.0,scratch
+windowrulev2 = float,                           class:^scratch$
+windowrulev2 = workspace special:scratch,       class:^scratch$
+windowrulev2 = size 70% 60%,                    class:^scratch$
+windowrulev2 = move 15% 20%,                    class:^scratch$
 #Popup Rules
 windowrule = workspace special:popterm,popterm
-windowrulev2 = float,                          title:PopTerm
-windowrulev2 = workspace special:popterm,      title:PopTerm
-windowrulev2 = size 70% 30%,                   title:PopTerm
-windowrulev2 = move 15% 69.5%,                 title:PopTerm
+# windowrule = opacity 1.0,popterm
+windowrulev2 = float,                          class:^popterm$
+windowrulev2 = workspace special:popterm,      class:^popterm$
+windowrulev2 = size 70% 30%,                   class:^popterm$
+windowrulev2 = move 15% 69.5%,                 class:^popterm$
 
 windowrule = workspace special:tops, gputop
 windowrule = workspace special:tops, cputop
-windowrulev2 = workspace special:tops, title:GPUTerm
-windowrulev2 = workspace special:tops, title:CPUTerm
+windowrule = workspace special:tops, nettop
+windowrulev2 = float,                         class:^gputop
+windowrulev2 = float,                         class:^cputop
+windowrulev2 = float,                         class:^nettop
+windowrulev2 = size 40% 40%,                  class:^gputop
+windowrulev2 = size 40% 85%,                  class:^cputop
+windowrulev2 = size 40% 40%,                  class:^nettop
+windowrulev2 = move 55% 5%,                   class:^gputop
+windowrulev2 = move 5% 5%,                    class:^cputop
+windowrulev2 = move 55% 50%,                  class:^nettop
+windowrulev2 = workspace special:tops, class:^gputop
+windowrulev2 = workspace special:tops, class:^cputop
+windowrulev2 = workspace special:tops, class:^nettop
 
-# Keybinds:wofi
+
+# Keybinds
 $MOD = SUPER
 
 bind = $MOD, L, exec, gtklock
@@ -189,31 +207,29 @@ bind = $MOD, M, exit
 bind = $MOD, Q, exec, ~/.config/wofi/powermenu
 
 # Launchers
+#bind = $MOD, RETURN, exec, kitty -o "linux_display_server=x11"
+bind = $MOD, RETURN, exec, foot
+bind = $MOD SHIFT, RETURN, exec, kitty --class kittyfloat -o "linux_display_server=x11"
+bind = $MOD SHIFT CTRL, RETURN, exec, ~/.config/hypr/show.sh
 bind = $MOD, R, exec, pkill wofi || wofi --conf ~/.config/wofi/launch
 bind = $MOD SHIFT, R, exec, wofi --show run --prompt=""
-
-bind = $MOD, RETURN, exec, foot
-bind = $MOD SHIFT, RETURN, exec, foot -T footfloat
-
-bind = $MOD SHIFT CTRL, RETURN, exec, ~/.config/hypr/show.sh
 bind = $MOD, B, exec, vivaldi-stable
-bind = $MOD CTRL, B, exec, ~/Programs/blender-4.0.0/blender
+bind = $MOD CTRL, B, exec, ~/Programs/Builds/blender-3.6.0-linux-x64/blender
 bind = $MOD, K, exec, ~/Programs/krita.appimage
-bind = $MOD, I, exec, ~/Programs/inkscape.appimage
-bind = $MOD SHIFT, G, exec, godot
+bind = $MOD, I, exec, inkscape
+bind = $MOD SHIFT, G, exec, ~/Builds/Godot_v4.1.1-stable_linux.x86_64
 bind = $MOD, F, exec, pcmanfm
-bind = $MOD SHIFT, F, exec, foot -e ranger
-bind = $MOD, N, exec, foot -e newsboat
-bind = $MOD, D, exec, ~/Programs/Builds/Discord/Discord
-# bind = $MOD, D, exec, discord
-bind = $MOD, O, exec, obs
-bind = $MOD, V, exec, foot -T Mixer -e pulsemixer
-bind = $MOD, A, exec, foot -T calendar -e calcurse
+bind = $MOD SHIFT, F, exec, kitty -e ranger
+bind = $MOD, N, exec, kitty -e newsboat
+bind = $MOD, D, exec, discord
+bind = $MOD, O, exec, QT_QPA_PLATFORM=xcb obs
+bind = $MOD, V, exec, kitty --class pmix --name pmix -T Mixer -e pulsemixer
+bind = $MOD, A, exec, kitty --class calendar --name calendar -T Calendar -e calcurse
 bind = $MOD, P, exec, hyprshot -m output -o ~/Documents/Pictures/Screenshots
 bind = $MOD SHIFT, P, exec, hyprshot -m region -o ~/Documents/Pictures/Screenshots
 bind = $MOD SHIFT CTRL, P, exec, grim -o DP-1 ~/Documents/Pictures/Screenshots/$(date +'%s_grim.png')
 bind = $MOD SHIFT, Q, exec, pkill wofi || $HOME/.config/waybar/custom/powermenu
-bind = $MOD, G, exec, hyprpicker -a
+bind = $MOD, G, exec, ~/Programs/Builds/hyprpicker/build/hyprpicker -a
 
 bind = $MOD, W, exec, pkill waybar || waybar
 
